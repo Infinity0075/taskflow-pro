@@ -14,6 +14,21 @@ dotenv.config();
 
 const app = express();
 
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
 // Middleware
 app.use(
   cors({
@@ -55,13 +70,10 @@ app.use("*", (req, res) => {
 
 // Database connection
 mongoose
-  .connect(
-    process.env.MONGODB_URI || "mongodb://localhost:27017/taskflow-pro",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("✅ Connected to MongoDB");
   })
