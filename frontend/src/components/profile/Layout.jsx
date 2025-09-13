@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Components
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,10 +12,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex">
       {/* Sidebar */}
-      <Sidebar 
-        isOpen={sidebarOpen} 
-        onClose={() => setSidebarOpen(false)} 
-      />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       {/* Mobile sidebar overlay */}
       <AnimatePresence>

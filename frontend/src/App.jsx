@@ -9,12 +9,12 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "react-hot-toast";
 
 // Components
-import Layout from "./components/layout/Layout";
+import Layout from "./components/profile/Layout";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 // Pages
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
